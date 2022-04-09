@@ -1,0 +1,22 @@
+.search {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 250px;
+    height: 80px;
+    text-align: center;
+  }
+
+  .search input {
+      height:27px;
+      width:220px
+  }
+
+  
+  .searchIcon {
+      position: absolute;
+      top: 0%;
+      left: 80%;
+  }
