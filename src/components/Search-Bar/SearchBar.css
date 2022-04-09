@@ -1,5 +1,5 @@
 .search {
-    position: absolute;
+    position: relative;
     top: 40%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
@@ -16,7 +16,7 @@
 
   
   .searchIcon {
-      position: absolute;
-      top: 0%;
-      left: 80%;
+      position: relative;
+      margin-top: -8.75%;
+      left: 26.5%;
   }
