@@ -27,17 +27,10 @@ function searchNote(){
     let note = "z"
 
     if(document.getElementById("note") != null){
-        note = document.getElementById("note")
+        note = document.getElementById("note").value
     }
 
-    const notes = [
-        {note: "a"},
-        {note: "b"},
-        {note: "c"},
-        {note: "d"},
-        {note: "e"},
-        {note: "f"}
-    ]
+    const notes = ["a", "b", "c", "d", "e", "f"]
 
     if (notes.includes(note)){
         console.log("Success")
