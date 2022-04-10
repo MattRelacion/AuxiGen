@@ -30,6 +30,25 @@ export function process(key) {
     if (!all_notes.includes(key)) {
         return "Error"
     }
+
+    let randomProgression = Math.floor(Math.random() * (progressions.length - 0) + 0)
+    let song = []
+    let note = all_notes.indexOf(key)
+    let key_scale = []
+    for (let i = 0; i < major_scale.length; i++) {
+        key_scale[i] = all_notes[note]
+        note += major_scale[i]
+        if (note > all_notes.length) {
+            note = all_notes.length - note - 1
+        } else if (note == all_notes.length) {
+            note = all_notes.length - note
+        }
+    }
+    
+    for (let i = 0; i < progressions[randomProgression].length; i++) {
+        song.push(key_scale[progressions[randomProgression][i]-1] + " " + major_scale_progression[progressions[randomProgression][i]]);
+    }
+    
     console.log("Intended chord:", key);
     buildchord(key, "major");
 }
