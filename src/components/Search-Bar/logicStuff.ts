@@ -20,7 +20,15 @@ export function buildchord(root, mode) {
         let chord_length = 1
         let chord_third = all_notes[(all_notes.indexOf(root) + maj_third) % num_notes] + octive;
         let chord_fifth = all_notes[(all_notes.indexOf(root) + maj_third + min_third) % num_notes] + octive;
-        console.log("Notes in chord: ", chord_root, chord_third, chord_fifth)
+        console.log("Notes in chord: ", chord_root, chord_third, chord_fifth);
+        synth.triggerAttackRelease([chord_root, chord_third, chord_fifth], chord_length);
+        // setTimeout(() => {}, 5000)
+    } else if (mode == "Minor") {
+        let chord_root = root + octive
+        let chord_length = 1
+        let chord_third = all_notes[(all_notes.indexOf(root) + min_third) % num_notes] + octive;
+        let chord_fifth = all_notes[(all_notes.indexOf(root) + maj_third + min_third) % num_notes] + octive;
+        console.log("Notes in chord: ", chord_root, chord_third, chord_fifth);
         synth.triggerAttackRelease([chord_root, chord_third, chord_fifth], chord_length);
     }
 }
