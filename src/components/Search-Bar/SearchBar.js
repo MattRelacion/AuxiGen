@@ -31,10 +31,11 @@ function searchNote(){
         note = document.getElementById("note").value;
     }
 
-    const notes = ["a", "b", "c", "d", "e", "f"];
+    note = note.toUpperCase();
+    const notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#" ,"G", "G#"];
 
     if (notes.includes(note)){
-        process('A');
+        process(note);
         console.log("Success");
     } else {
         console.log("Error! :(");
