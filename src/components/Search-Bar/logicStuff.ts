@@ -15,13 +15,14 @@ const synth = new Tone.PolySynth().toDestination();
 
 export function buildchord(root, mode) {
     // Builds a chord given a note to use as a root and a mode (major or minor)
-    if (mode=="major") {
+    if (mode == "Major") {
         let chord_root = root + octive
         let chord_length = 1
         let chord_third = all_notes[(all_notes.indexOf(root) + maj_third) % num_notes] + octive;
         let chord_fifth = all_notes[(all_notes.indexOf(root) + maj_third + min_third) % num_notes] + octive;
         console.log("Notes in chord: ", chord_root, chord_third, chord_fifth)
         synth.triggerAttackRelease([chord_root, chord_third, chord_fifth], chord_length);
+        // setTimeout(() => {}, 5000)
     }
 }
 
@@ -48,7 +49,13 @@ export function process(key) {
     for (let i = 0; i < progressions[randomProgression].length; i++) {
         song.push(key_scale[progressions[randomProgression][i]-1] + " " + major_scale_progression[progressions[randomProgression][i]]);
     }
+
+    for (let i = 0; i < song.length; i++) {
+        let someChord = song[i].split(" ");
+        console.log(someChord)
+        buildchord(someChord[0], someChord[1]);
+        // setTimeout(buildchord(someChord[0],someChord[1]), 5000)
+    }
     
     console.log("Intended chord:", key);
-    buildchord(key, "major");
 }
