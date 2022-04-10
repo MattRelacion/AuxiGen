@@ -5,7 +5,7 @@ const major_scale = [2, 2, 1, 2, 2, 2, 1];
 const major_scale_progression = {1: 'Major', 2: 'Minor', 3: 'Minor', 4: 'Major', 5: 'Major', 6:'Minor', 7: 'Diminished'};
 const progressions = [[1,5], [1,4,5], [1,4,1,5], [1,6,4,5], [1,5,6,4], [6,4,1,5]];
 
-const synth = new Tone.Synth().toDestination();
+const synth = new Tone.PolySynth().toDestination();
 //play a middle 'C' for the duration of an 8th note
 
 //Turn to a chord progression
@@ -29,7 +29,7 @@ export function process(key) {
     for (let i = 0; i < progressions[randProgression].length; i++) {
         song += key_scale[progressions[randProgression][i]-1] + " " + major_scale_progression[progressions[randProgression][i]] + " "
     }
+
+    synth.triggerAttackRelease(["F#4", "A#4", "C#4"], 1);
     return song
 }
-
-// console.log(process('A'))
