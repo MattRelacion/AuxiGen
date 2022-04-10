@@ -1,11 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './SearchBar.css'
 import MusicNoteIcon from '@mui/icons-material/MusicNote'
 import {process} from './logicStuff.ts' 
 
 function SearchBar({placeholder, data}) {
-
-    const [filteredData, setFilteredData] = useState([]);   
+  
 
   return (
     <div className = "search">

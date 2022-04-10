@@ -1,22 +1,24 @@
 .search {
     position: relative;
     top: 40%;
-    left: 50%;
+    left: 49%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    width: 250px;
+    width: 240px;
     height: 80px;
     text-align: center;
   }
 
   .search input {
       height:27px;
-      width:220px
+      width:220px;
   }
 
   
   .searchIcon {
       position: relative;
-      margin-top: -8.75%;
+      margin-top: -10.25%;
       left: 26.5%;
+      height: 50%;
+      /* width: 25%; */
   }

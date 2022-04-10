@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <h6 className="music">
-        Music Generator
+        Aux-i-Gen
       </h6>
       <img className="background" src={background}></img>
       <SearchBar placeholder="Enter a Note..."/>
