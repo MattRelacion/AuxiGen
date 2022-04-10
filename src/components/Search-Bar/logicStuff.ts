@@ -22,7 +22,6 @@ export function buildchord(root, mode) {
         let chord_fifth = all_notes[(all_notes.indexOf(root) + maj_third + min_third) % num_notes] + octive;
         console.log("Notes in chord: ", chord_root, chord_third, chord_fifth)
         synth.triggerAttackRelease([chord_root, chord_third, chord_fifth], chord_length);
-        // setTimeout(() => {}, 5000)
     }
 }
 
@@ -33,7 +32,9 @@ export async function process(key) {
     }
 
     let randomProgression = Math.floor(Math.random() * (progressions.length - 0) + 0)
-    let song = []
+    let randomProgression2 = Math.floor(Math.random() * (progressions.length - 0) + 0)
+    let verse = []
+    let chorus = []
     let note = all_notes.indexOf(key)
     let key_scale = []
     for (let i = 0; i < major_scale.length; i++) {
@@ -47,15 +48,27 @@ export async function process(key) {
     }
     
     for (let i = 0; i < progressions[randomProgression].length; i++) {
-        song.push(key_scale[progressions[randomProgression][i]-1] + " " + major_scale_progression[progressions[randomProgression][i]]);
+        verse.push(key_scale[progressions[randomProgression][i]-1] + " " + major_scale_progression[progressions[randomProgression][i]]);
     }
 
-    for (let i = 0; i < song.length; i++) {
-        let someChord = song[i].split(" ");
+    for (let i = 0; i < progressions[randomProgression2].length; i++) {
+        chorus.push(key_scale[progressions[randomProgression][i]-1] + " " + major_scale_progression[progressions[randomProgression][i]]);
+    }
+
+    
+    for (let i = 0; i < verse.length; i++) {
+        let someChord = verse[i].split(" ");
         console.log(someChord)
         buildchord(someChord[0], someChord[1]);
-        await delay(1000)
+        await delay(2000);
     }
+
+    for (let i = 0; i < chorus.length; i++) {
+        let someChord = verse[i].split(" ");
+        buildchord(someChord[0], someChord[1]);
+        await delay(2000);
+    }
+
     
     console.log("Intended chord:", key);
 }
