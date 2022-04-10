@@ -1,10 +1,11 @@
 import React, {useState} from 'react'
 import './SearchBar.css'
-import MusicNoteIcon from '@mui/icons-material/MusicNote';
+import MusicNoteIcon from '@mui/icons-material/MusicNote'
+import {process} from './logicStuff.ts' 
 
 function SearchBar({placeholder, data}) {
 
-    const [filteredData, setFilteredData] = useState([])   
+    const [filteredData, setFilteredData] = useState([]);   
 
   return (
     <div className = "search">
@@ -24,18 +25,19 @@ function SearchBar({placeholder, data}) {
 
 function searchNote(){
 
-    let note = "z"
+    let note = "";
 
     if(document.getElementById("note") != null){
-        note = document.getElementById("note").value
+        note = document.getElementById("note").value;
     }
 
-    const notes = ["a", "b", "c", "d", "e", "f"]
+    const notes = ["a", "b", "c", "d", "e", "f"];
 
     if (notes.includes(note)){
-        console.log("Success")
+        process('A');
+        console.log("Success");
     } else {
-        console.log("Error! :(")
+        console.log("Error! :(");
     }
 }
 
