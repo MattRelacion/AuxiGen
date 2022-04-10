@@ -27,7 +27,7 @@ export function buildchord(root, mode) {
 }
 
 //Turn to a chord progression
-export function process(key) {
+export async function process(key) {
     if (!all_notes.includes(key)) {
         return "Error"
     }
@@ -54,8 +54,12 @@ export function process(key) {
         let someChord = song[i].split(" ");
         console.log(someChord)
         buildchord(someChord[0], someChord[1]);
-        // setTimeout(buildchord(someChord[0],someChord[1]), 5000)
+        await delay(1000)
     }
     
     console.log("Intended chord:", key);
+}
+
+function delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
 }
